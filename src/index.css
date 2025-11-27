@@ -1,0 +1,213 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #aaaaaa;
+  --rect: #e4e4e4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* App layout */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* NAVBAR (Option A: horizontal) */
+.navbar {
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+  background-color: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 0.95rem; /* smaller */
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+.nav-link.active {
+  opacity: 0.5;
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 18px; /* vertical, horizontal */
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-rect {
+  width: 100%;
+  height: 140px;
+  background-color: var(--rect);
+  border-radius: 0; /* sharp edges */
+}
+
+.gallery-look {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.gallery-season {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+/* LETTERS PAGE GRID */
+/* Letters page grid */
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 18px;
+}
+
+.letters-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* reuse the gallery rectangle styling if you want consistent blocks */
+.letters-rect {
+  width: 100%;
+  height: 140px;
+  background-color: var(--rect);
+  border-radius: 0;
+}
+
+.letters-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.item-price {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.item-button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border: 1px solid #000;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.item-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.letter-body {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "Courier New", Courier, monospace; /* typewriter style */
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+
+
+
+/* Letter view container */
+.letter-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* FOOTER */
+.site-footer {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .gallery-grid,
+  .letters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid,
+  .letters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
