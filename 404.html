@@ -2,16 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
+    <link rel="icon" type="image/svg+xml" href="/maisonquindecim/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maison Quindecim</title>
-
-    <!-- IMPORTANT: relative paths (no leading / ) -->
-    <script type="module" crossorigin src="assets/index-B4RfI71l.js"></script>
-    <link rel="stylesheet" crossorigin href="assets/index-B_QWRUH1.css" />
+    <script>
+      // GitHub Pages SPA redirect
+      // Redirect to index with the path preserved in the URL hash
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
   </head>
-
   <body>
-    <div id="root"></div>
+    <noscript>JavaScript is required for this site.</noscript>
   </body>
 </html>
